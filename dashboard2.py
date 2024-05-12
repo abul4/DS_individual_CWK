@@ -3,6 +3,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 
+
 # Read Excel file
 store_data = pd.read_excel('../data_science_individual_CWK/Global Superstore lite.xlsx', sheet_name=0)
 
