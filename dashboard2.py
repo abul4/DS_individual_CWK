@@ -3,6 +3,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 import numpy as np
+import plotly.express as px
 
 # Read Excel file
 store_data = pd.read_excel('../data_science_individual_CWK/Global Superstore lite.xlsx', sheet_name=0)
@@ -28,34 +29,30 @@ st.title("Global Superstore Dashboard")
 box_style = "border-radius: 10px; padding: 20px; border: 2px solid darkgreen;"
 
 # Box 1: Total Sales
-with st.sidebar.beta_container():
+with st.sidebar:
     st.markdown(f'<div style="{box_style} background-color: limegreen; color: limegreen; cursor: pointer;" onmouseover="this.style.backgroundColor=\'darkgreen\'; this.style.color=\'white\'" onmouseout="this.style.backgroundColor=\'limegreen\'; this.style.color=\'limegreen\'">', unsafe_allow_html=True)
     st.markdown(f"## Total Sales: ${total_sales:.2f}M")
     st.markdown('<i class="fas fa-arrow-up" style="color: green;"></i>' if sales_trend == 1 else '<i class="fas fa-arrow-down" style="color: red;"></i>')
     st.markdown('</div>', unsafe_allow_html=True)
 
 # Box 2: Total Profit
-with st.sidebar.beta_container():
+with st.sidebar:
     st.markdown(f'<div style="{box_style} background-color: limegreen; color: limegreen; cursor: pointer;" onmouseover="this.style.backgroundColor=\'darkgreen\'; this.style.color=\'white\'" onmouseout="this.style.backgroundColor=\'limegreen\'; this.style.color=\'limegreen\'">', unsafe_allow_html=True)
     st.markdown(f"## Total Profit: ${total_profit:.2f}K")
     st.markdown('<i class="fas fa-arrow-up" style="color: green;"></i>' if profit_trend == 1 else '<i class="fas fa-arrow-down" style="color: red;"></i>')
     st.markdown('</div>', unsafe_allow_html=True)
 
 # Box 3: Total Orders
-with st.sidebar.beta_container():
+with st.sidebar:
     st.markdown(f'<div style="{box_style} background-color: limegreen; color: limegreen; cursor: pointer;" onmouseover="this.style.backgroundColor=\'darkgreen\'; this.style.color=\'white\'" onmouseout="this.style.backgroundColor=\'limegreen\'; this.style.color=\'limegreen\'">', unsafe_allow_html=True)
     st.markdown(f"## Total Orders: {total_orders}")
     st.markdown('</div>', unsafe_allow_html=True)
 
 # Box 4: Ship Mode Doughnut Chart
-with st.sidebar.beta_container():
+with st.sidebar:
     st.markdown(f'<div style="{box_style} background-color: limegreen; color: limegreen; cursor: pointer;" onmouseover="this.style.backgroundColor=\'darkgreen\'; this.style.color=\'white\'" onmouseout="this.style.backgroundColor=\'limegreen\'; this.style.color=\'limegreen\'">', unsafe_allow_html=True)
     st.markdown("## Total Ship Mode")
     fig = px.pie(values=ship_mode_counts, names=ship_mode_counts.index, hole=0.4)
     fig.update_traces(marker=dict(colors=['#3D9970', '#2CA02C', '#26B0A6', '#00AFB9']))
     st.plotly_chart(fig, use_container_width=True)
     st.markdown('</div>', unsafe_allow_html=True)
-
-# Main Content
-st.write("## Main Content")
-st.write("Add more analysis and visualizations here.")
