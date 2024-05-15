@@ -26,7 +26,14 @@ regions = store_data['Region'].unique().tolist()
 regions.insert(0, 'All Regions')
 
 # Dashboard Title
-st.title("Global Superstore Dashboard")
+st.markdown(
+    """
+    <h1 style='text-align: center; color: darkorange; font-family: Arial, sans-serif; font-size: 36px;'>
+        Global Superstore Sales and Performance Dashboard
+    </h1>
+    """,
+    unsafe_allow_html=True
+)
 
 # Box Styling
 box_style = """
@@ -40,8 +47,8 @@ box_style = """
     """
 title_style = "font-size: 28px;"
 
-# Use columns for layout management with increased padding
-col1, spacer1, col2, spacer2, col3 = st.columns([1, 0.5, 1, 0.5, 1])
+# Filter Section Heading
+st.sidebar.header("Filter Data")
 
 # Dropdown slicers
 selected_year = st.sidebar.selectbox('Select Year', years)
@@ -68,6 +75,9 @@ total_profit = filtered_data['Profit'].sum() / 1e3  # in thousands
 
 # Total Orders
 total_orders = filtered_data['Order ID'].nunique()
+
+# Use columns for layout management with increased padding
+col1, spacer1, col2, spacer2, col3 = st.columns([1, 0.5, 1, 0.5, 1])
 
 # Box 1: Total Sales
 with col1:
@@ -220,6 +230,7 @@ fig.update_layout(
 
 # Plot the chart in Streamlit
 st.plotly_chart(fig)
+
 
 
 
