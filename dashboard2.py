@@ -9,7 +9,7 @@ from bokeh.plotting import figure, show
 import plotly.graph_objects as go
 
 # Read Excel file
-store_data = pd.read_excel('../Global Superstore lite.xlsx', sheet_name=0)
+store_data = pd.read_excel('../data_science_individual_CWK', sheet_name=0)
 
 # Extract year from Order Date
 store_data['Order Date'] = pd.to_datetime(store_data['Order Date'])
