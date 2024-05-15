@@ -4,5 +4,4 @@ matplotlib
 seaborn
 numpy
 plotly
-bokeh
 openpyxl

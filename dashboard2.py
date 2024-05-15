@@ -5,8 +5,6 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import numpy as np
 import plotly.express as px
-from bokeh.layouts import row
-from bokeh.plotting import figure, show
 import plotly.graph_objects as go
 
 # importing Excel file
