@@ -30,7 +30,7 @@ regions.insert(0, 'All Regions')
 st.markdown(
     """
     <h1 style='text-align: center; color: darkorange; font-family: Arial, sans-serif; font-size: 36px;'>
-        Global Superstore Sales and Performance Dashboard
+        Minger Sales and Performance Dashboard
     </h1>
     """,
     unsafe_allow_html=True
